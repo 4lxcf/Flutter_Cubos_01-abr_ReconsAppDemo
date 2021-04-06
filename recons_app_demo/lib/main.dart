@@ -37,9 +37,26 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {},
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            child: Icon(Icons.remove),
+            onPressed: () {
+              setState(() {
+                counter--;
+              });
+            },
+          ),
+          FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () {
+              setState(() {
+                counter++;
+              });
+            },
+          ),
+        ],
       ),
     );
   }
