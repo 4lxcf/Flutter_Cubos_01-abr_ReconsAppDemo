@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recons_app_demo/float_action_button.dart';
 
 main() {
   runApp(MaterialApp(
@@ -38,23 +39,16 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButton: Row(
+        mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          FloatingActionButton(
-            child: Icon(Icons.remove),
-            onPressed: () {
-              setState(() {
-                counter--;
-              });
-            },
+          FloatActionButton(
+            Icons.remove,
+            () {},
           ),
-          FloatingActionButton(
-            child: Icon(Icons.add),
-            onPressed: () {
-              setState(() {
-                counter++;
-              });
-            },
+          FloatActionButton(
+            Icons.add,
+            () {},
           ),
         ],
       ),
