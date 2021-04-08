@@ -15,7 +15,21 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var counter = 0;
+  var _counter = 0;
+
+  void operation(String op) {
+    if (op == '+') {
+      setState(() {
+        _counter++;
+      });
+      print(_counter);
+    }
+    if (op == '-') {
+      setState(() {
+        _counter--;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: TextStyle(fontSize: 20),
             ),
             Text(
-              '$counter',
+              '$_counter',
               style: TextStyle(fontSize: 26),
             ),
           ],
@@ -44,11 +58,15 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           FloatActionButton(
             Icons.remove,
-            () {},
+            () {
+              operation('-');
+            },
           ),
           FloatActionButton(
             Icons.add,
-            () {},
+            () {
+              operation('+');
+            },
           ),
         ],
       ),

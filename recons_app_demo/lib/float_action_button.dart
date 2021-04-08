@@ -10,7 +10,9 @@ class FloatActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       child: Icon(icon),
-      onPressed: fn(),
+      onPressed: () {
+        fn();
+      },
     );
   }
 }
