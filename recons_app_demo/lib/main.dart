@@ -17,18 +17,20 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   var _counter = 0;
 
-  void operation(String op) {
-    if (op == '+') {
-      setState(() {
-        _counter++;
-      });
-      print(_counter);
-    }
-    if (op == '-') {
-      setState(() {
-        _counter--;
-      });
-    }
+  void sum() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void sub() {
+    setState(() {
+      _counter--;
+    });
+  }
+
+  void operation(Function fn) {
+    fn();
   }
 
   @override
@@ -59,13 +61,13 @@ class _HomeScreenState extends State<HomeScreen> {
           FloatActionButton(
             Icons.remove,
             () {
-              operation('-');
+              operation(sub);
             },
           ),
           FloatActionButton(
             Icons.add,
             () {
-              operation('+');
+              operation(sum);
             },
           ),
         ],
