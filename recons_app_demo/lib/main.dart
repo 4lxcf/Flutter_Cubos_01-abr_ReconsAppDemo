@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:recons_app_demo/counter_controller.dart';
 import 'package:recons_app_demo/float_action_button.dart';
 
 main() {
@@ -15,23 +17,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var _counter = 0;
-
-  void sum() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void sub() {
-    setState(() {
-      _counter--;
-    });
-  }
-
-  void operation(Function fn) {
-    fn();
-  }
+  final controller = CounterController();
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: TextStyle(fontSize: 20),
             ),
             Text(
-              '$_counter',
+              controller.counter,
               style: TextStyle(fontSize: 26),
             ),
           ],
@@ -60,14 +46,14 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           FloatActionButton(
             Icons.remove,
-            () {
-              operation(sub);
-            },
+            () {},
           ),
           FloatActionButton(
             Icons.add,
             () {
-              operation(sum);
+              setState(() {
+                controller.incrementCounter();
+              });
             },
           ),
         ],
