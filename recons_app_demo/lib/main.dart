@@ -46,7 +46,11 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           FloatActionButton(
             Icons.remove,
-            () {},
+            () {
+              setState(() {
+                controller.decrementCounter();
+              });
+            },
           ),
           FloatActionButton(
             Icons.add,
